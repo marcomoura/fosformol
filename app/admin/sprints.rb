@@ -15,8 +15,8 @@ ActiveAdmin.register Sprint do
   end
 
   member_action :new_sprint do
-    @sprint = Sprint.find(params[:id])
-    if @sprint.finalize
+    @project = Project.find(params[:id])
+    if @project.try(:current_sprint).try(:finalize)
       redirect_to admin_project_path(@project), :notice => "Sprint successfully completed!"
     else
       redirect_to admin_project_path(@project), :alert => "Sprint successfully completed!"
