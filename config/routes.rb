@@ -1,7 +1,11 @@
 Fosformol::Application.routes.draw do
+  get "sprints/index"
+
   resources :feedbacks
 
-  resources :projects
+  resources :projects do
+    resources :sprints, :only => [:index]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

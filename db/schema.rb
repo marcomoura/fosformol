@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120706142936) do
+ActiveRecord::Schema.define(:version => 20120706170049) do
+
+  create_table "feedbacks", :force => true do |t|
+    t.text     "description", :null => false
+    t.boolean  "nice",        :null => false
+    t.integer  "sprint_id",   :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "feedbacks", ["sprint_id"], :name => "index_feedbacks_on_sprint_id"
 
   create_table "projects", :force => true do |t|
     t.string   "title",      :null => false
