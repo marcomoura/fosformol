@@ -1,0 +1,17 @@
+%h1
+  Project
+  = @project
+%table
+  %tr
+    %th Strint
+    %th Good
+    %th Bad
+  %tr
+    - @sprints.each do |sprint|
+      %td
+        Sprint 
+        = sprint.iteration
+      %td
+        = goods_and_bad_feedbacks(sprint)[true]
+      %td
+        = goods_and_bad_feedbacks(sprint)[false]
