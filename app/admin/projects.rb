@@ -22,9 +22,7 @@ ActiveAdmin.register Project do
 
 
 
-  show do
-    h3 project.title
-
+  show :title => :title do
     #active_admin_sprints
   end
 end
