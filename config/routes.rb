@@ -3,13 +3,11 @@ Fosformol::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :feedbacks
-
-    resources :projects do
-      resources :sprints, :only => [:index] do
-        resources :feedbacks, :only => [:index]
-      end
+  resources :projects do
+    resources :sprints, :only => [:index] do
+      resources :feedbacks, :only => [:index]
     end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

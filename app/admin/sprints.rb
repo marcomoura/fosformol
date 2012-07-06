@@ -8,19 +8,17 @@ ActiveAdmin.register Sprint do
     @sprint = Sprint.find(params[:id])
   end
 
-  show do
-    table_for sprint.feedbacks do
-      column "Description", :description
+  index do
+    @project = params[:project_id]
+    @sprint = Project.find(@project).sprints
+    table_for @sprint do
+      column "Iteration", :to_s
     end
   end
 
-  member_action :new_sprint do
-    @project = Project.find(params[:id])
-    if @project.try(:current_sprint).try(:finalize)
-      redirect_to admin_project_path(@project), :notice => "Sprint successfully completed!"
-    else
-      redirect_to admin_project_path(@project), :alert => "Sprint successfully completed!"
-    end
+
+  action_item :only => :index do
+    link_to("Start next SPRINT", new_sprint_admin_project_path(params[:project_id]))
   end
 end
 
