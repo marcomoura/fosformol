@@ -1,5 +1,7 @@
 ActiveAdmin.register Sprint do
 
+  belongs_to :project
+
   menu false
 
   member_action :feedbacks do
@@ -9,8 +11,8 @@ ActiveAdmin.register Sprint do
   show do
     table_for sprint.feedbacks do
       column "Description", :description
+    end
   end
-end
 
   member_action :new_sprint do
     @sprint = Sprint.find(params[:id])

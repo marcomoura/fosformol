@@ -1,5 +1,7 @@
 ActiveAdmin.register Feedback do
 
+  belongs_to :sprint
+
   menu false
 
   show do
