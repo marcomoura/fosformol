@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @feedback.description
+%p
+  %b Sprint:
+  = @feedback.sprint
+%p
+  %b Type:
+  = @feedback.type
+
+= link_to 'Edit', edit_feedback_path(@feedback)
+\|
+= link_to 'Back', feedbacks_path

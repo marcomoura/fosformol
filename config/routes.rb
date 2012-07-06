@@ -1,4 +1,6 @@
 Fosformol::Application.routes.draw do
+  resources :feedbacks
+
   resources :projects
 
   # The priority is based upon order of creation:
