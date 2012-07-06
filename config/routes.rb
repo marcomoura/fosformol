@@ -6,7 +6,7 @@ Fosformol::Application.routes.draw do
   resources :feedbacks
 
   resources :projects do
-    resources :sprints, :only => [:index]
+    resources :sprints, :only => [:index, :destroy]
   end
 
   # The priority is based upon order of creation:

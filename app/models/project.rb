@@ -1,6 +1,9 @@
 class Project < ActiveRecord::Base
   has_many :sprints
 
+  validates :title, :presence   => true
+  validates :title, :uniqueness => true, :allow_blank => true
+
   after_create :create_sprint_zero
 
   def to_s
