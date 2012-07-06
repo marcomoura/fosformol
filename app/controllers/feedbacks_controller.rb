@@ -24,7 +24,8 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks/new
   # GET /feedbacks/new.json
   def new
-    @feedback = Feedback.new
+    load_project
+    @feedback = Feedback.new(:sprint => @sprint)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,9 +41,8 @@ class FeedbacksController < ApplicationController
   # POST /feedbacks
   # POST /feedbacks.json
   def create
-    Project.find_
+    load_sprint
     @feedback = Feedback.new(params[:feedback])
-
 
     respond_to do |format|
       if @feedback.save
@@ -81,5 +81,14 @@ class FeedbacksController < ApplicationController
       format.html { redirect_to feedbacks_url }
       format.json { head :no_content }
     end
+  end
+
+  def load_project
+    @project  = Project.find(params[:project_id])
+    @sprint   = @project.current_sprint
+  end
+
+  def load_sprint
+    #@sprint  = Sprint.find(params[:[:sprint_id])
   end
 end
