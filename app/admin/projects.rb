@@ -23,6 +23,21 @@ ActiveAdmin.register Project do
 
 
   show :title => :title do
-    #active_admin_sprints
+
+    table_for project.sprints do
+      column "Iteration" do |sprint|
+        link_to(sprint.to_s, feedbacks_admin_sprint_path(sprint))
+      end
+    end
+
+    link_to(project.title, new_admin_sprint_path(project))
   end
+
+  member_action :sprints, :method => :get do
+    #link_to "Finalizar sprint atual e iniciar um novo sprint ", "/"
+    redirect feedbacks_admin_sprint_path(sprint)
+  end
+
+
+  # /admin/posts/:id/comments
 end

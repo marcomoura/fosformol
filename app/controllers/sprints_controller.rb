@@ -3,7 +3,7 @@ class SprintsController < ApplicationController
   before_filter :load_project
 
   def index
-    @sprints = @project.sprints
+    @sprints = Project.sprints
   end
 
   protected
