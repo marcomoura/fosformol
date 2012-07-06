@@ -4,7 +4,7 @@
   %tr
     %th Description
     %th Sprint
-    %th Type
+    %th Nice
     %th
     %th
     %th
@@ -13,7 +13,7 @@
     %tr
       %td= feedback.description
       %td= feedback.sprint
-      %td= feedback.type
+      %td= feedback.nice
       %td= link_to 'Show', feedback
       %td= link_to 'Edit', edit_feedback_path(feedback)
       %td= link_to 'Destroy', feedback, :confirm => 'Are you sure?', :method => :delete

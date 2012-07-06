@@ -3,9 +3,12 @@ class Project < ActiveRecord::Base
 
   after_create :create_sprint_zero
 
-
   def to_s
     title
+  end
+
+  def current_sprint
+    self.sprints.where(:active => true).last
   end
 
   protected

@@ -1,5 +1,7 @@
 Fosformol::Application.routes.draw do
-  get "sprints/index"
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :feedbacks
 
