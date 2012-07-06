@@ -1,5 +1,7 @@
 ActiveAdmin.register Feedback do
 
+  form :partial => "form"
+
   belongs_to :sprint
 
   menu false
@@ -9,4 +11,5 @@ ActiveAdmin.register Feedback do
       column "Description", :description
     end
   end
+
 end

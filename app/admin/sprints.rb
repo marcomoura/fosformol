@@ -11,8 +11,8 @@ ActiveAdmin.register Sprint do
   index do
     @project = params[:project_id]
     @sprint = Project.find(@project).sprints
-    table_for @sprint do
-      column "Iteration", :to_s
+    column "Iteration" do |sprint|
+      link_to(sprint.to_s, admin_sprint_feedbacks_path(sprint))
     end
   end
 
