@@ -6,14 +6,16 @@
         - @feedback.errors.full_messages.each do |msg|
           %li= msg
 
+  .field.hide
+    = f.label        :sprint
+    = f.text_field   :sprint_id
   .field
-    = f.label :description
-    = f.text_area :description
+    = f.label        :description
+    = f.text_area    :description
   .field
-    = f.label :sprint
-    = f.text_field :sprint
-  .field
-    = f.label :type
-    = f.check_box :type
+    = f.label        :nice
+    = f.radio_button :nice, true
+    = f.label        :less
+    = f.radio_button :nice, false
   .actions
     = f.submit 'Save'

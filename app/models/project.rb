@@ -3,6 +3,10 @@ class Project < ActiveRecord::Base
 
   after_create :create_sprint_zero
 
+  def current_sprint
+    self.sprints.where(:active => true).last
+  end
+
   protected
 
   def create_sprint_zero
