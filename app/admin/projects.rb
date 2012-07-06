@@ -1,15 +1,5 @@
 ActiveAdmin.register Project do
 
-  #index :as => :grid do |project|
-  #link_to(project.title, admin_project_path(project))
-  #end
-
-  #index :as => :block do |project|
-  #div :for => project do
-  #h2 auto_link(project.title)
-  #end
-  #end
-
   index do
     column "Project" do |project|
       link_to project.title, admin_project_path(project)
@@ -30,14 +20,10 @@ ActiveAdmin.register Project do
       end
     end
 
-    link_to(project.title, new_admin_sprint_path(project))
-  end
-
-  member_action :sprints, :method => :get do
-    #link_to "Finalizar sprint atual e iniciar um novo sprint ", "/"
-    redirect feedbacks_admin_sprint_path(sprint)
   end
 
 
-  # /admin/posts/:id/comments
+action_item :only => :show do
+    link_to("Start next SPRINT", new_sprint_admin_sprint_path(project))
+end
 end
